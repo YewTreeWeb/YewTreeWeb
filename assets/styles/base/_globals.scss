@@ -1,0 +1,85 @@
+@use '../helpers' as *;
+@use '../helpers/fonts' as f;
+
+:root {
+  @each $colour, $shades in $colours {
+    @each $shade, $value in $shades {
+      --clr-#{$colour}-#{$shade}: #{$value};
+    }
+  }
+  @each $size, $value in f.$sizes {
+    --fs-#{$size}: #{$value};
+  }
+}
+
+@each $heading, $size in f.$headings {
+  #{$heading} {
+    font-family: f.$fh;
+    font-size: v(fs-#{$size});
+    line-height: map-get(f.$lh, $size);
+    font-weight: map-get(f.$weights, 500);
+  }
+}
+
+// MSIE: Required for IEMobile.
+@-ms-viewport {
+  width: device-width;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+body {
+  background-color: white;
+  font: map-get(f.$weights, 400) v(fs-base) / 1 f.$ff;
+  color: v(clr-neutral-600);
+  position: relative;
+  // MSIE: Prevents scrollbar from overlapping content.
+  -ms-overflow-style: scrollbar;
+  // Prevents animation/transition "flicker" on page load.
+  // Automatically added/removed by js/main.js.
+  &.is-loading {
+    overflow: hidden;
+    height: 100vh;
+  }
+  p {
+    line-height: map-get(f.$lh, base);
+  }
+}
+
+main {
+  &.is-loading {
+    overflow: hidden;
+    height: 100vh;
+    *,
+    *::before,
+    *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+  }
+}
+
+.active {
+  display: block;
+}
+
+.hide {
+  display: none !important;
+}
+
+@include media('screen', '<lg') {
+  .container {
+    @include fluid('max-width', 286px, 860px, 321px, 1023px);
+  }
+}
+
+// Ensures page width is always >=320px.
+@include media('>=xs') {
+  html,
+  body {
+    min-width: 320px;
+  }
+}

@@ -1,0 +1,47 @@
+@use '../helpers' as *;
+
+@include font-face(
+  Inter,
+  '~/fonts/inter-v11-latin-300',
+  (0, 0),
+  300,
+  normal,
+  swap,
+  true
+);
+@include font-face(
+  Inter,
+  '~/fonts/inter-v11-latin-regular',
+  (0, 0),
+  400,
+  normal,
+  swap,
+  true
+);
+@include font-face(
+  Inter,
+  '~/fonts/inter-v11-latin-500',
+  (0, 0),
+  500,
+  normal,
+  swap,
+  true
+);
+@include font-face(
+  'Red Hat Display',
+  '~/fonts/red-hat-display-v12-latin-700',
+  (0, 0),
+  700,
+  normal,
+  swap,
+  true
+);
+@include font-face(
+  'Red Hat Display',
+  '~/fonts/red-hat-display-v12-latin-900',
+  (0, 0),
+  900,
+  normal,
+  swap,
+  true
+);
