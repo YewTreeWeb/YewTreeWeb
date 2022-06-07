@@ -6,7 +6,7 @@
     :aria-labelledby="ariaIds()"
   >
     <title :id="titleId">{{ title }}</title>
-    <desc v-if="description" :id="descId">{{ description }}</desc>
+    <desc v-if="desc" :id="descId">{{ desc }}</desc>
     <g fill="none">
       <path
         d="M9.249 26h1.296v-9.252H9.249V26zm.648-15.948l9.108-8.316L18.14.8 9.897 8.252 1.653.8l-.864.972 9.108 8.28zM21.56 2.096h7.416V26h1.296V2.096h7.416V.8H21.561v1.296z"
@@ -34,7 +34,7 @@ export default {
       type: String,
       default: 'YTW',
     },
-    description: {
+    desc: {
       type: String,
       default: null,
     },
@@ -60,7 +60,7 @@ export default {
   },
   methods: {
     ariaIds() {
-      return `${this.titleId}${this.description ? ' ' + this.descId : ''}`
+      return `${this.titleId}${this.desc ? ' ' + this.descId : ''}`
     },
   },
 }

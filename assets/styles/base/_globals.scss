@@ -2,6 +2,8 @@
 @use '../helpers/fonts' as f;
 
 :root {
+  --clr-white: #ffffff;
+  --clr-black: #000000;
   @each $colour, $shades in $colours {
     @each $shade, $value in $shades {
       --clr-#{$colour}-#{$shade}: #{$value};

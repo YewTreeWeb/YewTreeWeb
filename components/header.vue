@@ -1,6 +1,6 @@
 <template>
   <header>
-    <site-logo description="YTW logo with the 'W' being coloured green" />
+    <site-logo desc="YTW logo with the 'W' being coloured green" />
     <site-navigation />
   </header>
 </template>

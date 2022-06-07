@@ -31,7 +31,27 @@ export default {
       { name: 'format-detection', content: 'telephone=no' },
       { name: 'author', content: 'Mathew Teague' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [
+      {
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: '/fonts/inter-v11-latin-regular.woff2',
+      },
+      {
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: '/fonts/red-hat-display-v12-latin-700.woff2',
+      },
+      {
+        rel: 'preload',
+        as: 'font',
+        type: 'font/woff2',
+        href: '/fonts/red-hat-display-v12-latin-900.woff2',
+      },
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -41,11 +61,13 @@ export default {
   privateRuntimeConfig: {
     CTF_SPACE_ID: process.env.CTF_SPACE_ID,
     CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
-    CTF_BLOG_POST_TYPE_ID: process.env.CTF_BLOG_POST_TYPE_ID,
   },
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    baseUrl:
+      process.env.NODE_ENV === 'development'
+        ? 'http://localhost:3000'
+        : 'https://yewtreeweb.co.uk',
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -88,7 +110,7 @@ export default {
 
   // Image optimization configuration
   image: {
-    dir: '~/assets/images',
+    dir: '@/assets/images',
   },
 
   // Google Tag Manager Module for Nuxt.js
