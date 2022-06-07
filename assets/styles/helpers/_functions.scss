@@ -109,6 +109,14 @@
 }
 
 // Convert px to rem
-@function rem($pxValue) {
-  @return calc(#{stripUnit($pxValue) / stripUnit(16px)}) rem;
+@function rem($pixels, $context: 16) {
+  @if (unitless($pixels)) {
+    $pixels: $pixels * 1px;
+  }
+
+  @if (unitless($context)) {
+    $context: $context * 1px;
+  }
+
+  @return calc($pixels / $context * 1rem);
 }

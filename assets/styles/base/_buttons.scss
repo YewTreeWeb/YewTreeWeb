@@ -1,0 +1,40 @@
+@use '../helpers' as *;
+@use '../helpers/fonts' as f;
+
+button,
+.btn {
+  background-color: v(clr-teal-500);
+  color: v(clr-white);
+  border-radius: 4px;
+  line-height: map-get(f.$lh, leading-7);
+  font-weight: map-get(f.$weights, 500);
+  font-size: v(fs-base);
+  @include padding(rem(8px) rem(20px));
+  z-index: 1;
+  position: relative;
+  outline: none;
+  border: none;
+  overflow: hidden;
+  @media (hover: hover) {
+    transition: background-color 0.5s ease-in-out;
+    &::before {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 1em;
+      height: 1em;
+      border-radius: 50%;
+      background-color: v(clr-teal-600);
+      transform-origin: center;
+      transform: translate3d(-50%, -50%, 0) scale3d(0, 0, 0);
+      transition: transform 0.45s ease-in-out;
+    }
+    &:hover {
+      &::before {
+        transform: translate3d(-50%, -50%, 0) scale3d(15, 15, 15);
+      }
+    }
+  }
+}
