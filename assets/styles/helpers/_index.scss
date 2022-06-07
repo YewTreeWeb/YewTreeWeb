@@ -1,4 +1,4 @@
-@use '../../node_modules/include-media/dist/include-media' with (
+@use '../../../node_modules/include-media/dist/include-media' with (
   $breakpoints: (
     'xs': 320px,
     'sm': 430px,
@@ -17,7 +17,7 @@
     'retina3x': '(-webkit-min-device-pixel-ratio: 3), (min-resolution: 350dpi)',
   )
 );
-@forward '../../node_modules/include-media/dist/include-media';
+@forward '../../../node_modules/include-media/dist/include-media';
 @forward './functions';
 @forward './mixins';
 @forward './colours';

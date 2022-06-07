@@ -37,37 +37,37 @@ export default {
         as: 'font',
         type: 'font/woff2',
         href: '/fonts/inter-v11-latin-regular.woff2',
+        crossorigin: true,
       },
       {
         rel: 'preload',
         as: 'font',
         type: 'font/woff2',
         href: '/fonts/red-hat-display-v12-latin-700.woff2',
+        crossorigin: true,
       },
       {
         rel: 'preload',
         as: 'font',
         type: 'font/woff2',
         href: '/fonts/red-hat-display-v12-latin-900.woff2',
+        crossorigin: true,
       },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['normalize.css', 'the-new-css-reset', '@/assets/styles/main'],
+  css: ['normalize.css', '@/assets/styles/main'],
 
-  // Environment variables
-  privateRuntimeConfig: {
-    CTF_SPACE_ID: process.env.CTF_SPACE_ID,
-    CTF_CDA_ACCESS_TOKEN: process.env.CTF_CDA_ACCESS_TOKEN,
-  },
-
-  env: {
-    baseUrl:
+  // Environment variables},
+  publicRuntimeConfig: {
+    ctfID: process.env.CTF_SPACE_ID,
+    ctfToken: process.env.CTF_CDA_ACCESS_TOKEN,
+    baseURL:
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000'
-        : 'https://yewtreeweb.co.uk',
+        : process.env.BASE_URL,
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

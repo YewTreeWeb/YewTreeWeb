@@ -8,16 +8,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
+<script>
 import SiteHeader from '@/components/header.vue'
 import SiteFooter from '@/components/footer.vue'
 
-export default Vue.extend({
+export default {
   name: 'DefaultLayout',
   components: {
     SiteHeader,
     SiteFooter,
   },
-})
+}
 </script>

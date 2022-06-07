@@ -1,8 +1,11 @@
 <template>
-  <h1>Hello</h1>
+  <div>
+    <h1>Hello</h1>
+    <p>{{ $config.baseURL }}</p>
+  </div>
 </template>
 
-<script lang="ts">
+<script>
 import Vue from 'vue'
 
 export default Vue.extend({

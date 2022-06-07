@@ -1,3 +1,5 @@
+@use 'sass:math';
+
 // Get value from nested maps
 @function map-deep-get($map, $keys...) {
   @each $key in $keys {
@@ -11,9 +13,15 @@
   @return var(--#{$name});
 }
 
-// Strip unit from number.
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return math.div($number, ($number * 0 + 1));
+  }
+
+  @return $number;
 }
 
 // Transforms shorthand to its shortest possible form.
@@ -97,15 +105,10 @@
     $context: $context * 1px;
   }
 
-  @return $pixels / $context * 1em;
-}
-
-// Removes the unit from a value.
-@function stripUnit($value) {
-  @return $value / ($value * 0 + 1);
+  @return calc($pixels / $context * 1em);
 }
 
 // Convert px to rem
 @function rem($pxValue) {
-  @return #{stripUnit($pxValue) / stripUnit(16px)}rem;
+  @return calc(#{stripUnit($pxValue) / stripUnit(16px)}) rem;
 }

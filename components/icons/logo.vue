@@ -1,6 +1,7 @@
 <template>
   <svg
     viewBox="0 0 67 26"
+    :class="classes"
     xmlns="http://www.w3.org/2000/svg"
     role="img"
     :aria-labelledby="ariaIds()"
@@ -26,6 +27,10 @@ import { v4 as uuidv4 } from 'uuid'
 export default {
   name: 'SiteLogo',
   props: {
+    classes: {
+      type: Array,
+      default: null,
+    },
     strokewidth: {
       type: [Number, String],
       default: 1,
