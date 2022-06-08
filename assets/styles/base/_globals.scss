@@ -12,6 +12,9 @@
   @each $size, $value in f.$sizes {
     --fs-#{$size}: #{$value};
   }
+  @each $lh, $value in f.$lh {
+    --#{$lh}: #{$value};
+  }
 }
 
 @each $heading, $size in f.$headings {
@@ -36,7 +39,7 @@ html {
 }
 
 body {
-  background-color: v(clr-grey-800);
+  background-color: v(clr-grey-900);
   font: map-get(f.$weights, 400) v(fs-base) / 1 f.$ff;
   color: v(clr-grey-400);
   position: relative;
@@ -109,4 +112,11 @@ a {
       }
     }
   }
+}
+
+ul {
+  padding-left: 0.813rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
 }

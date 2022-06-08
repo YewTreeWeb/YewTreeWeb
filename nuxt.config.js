@@ -64,6 +64,7 @@ export default {
   publicRuntimeConfig: {
     ctfID: process.env.CTF_SPACE_ID,
     ctfToken: process.env.CTF_CDA_ACCESS_TOKEN,
+    author: 'Mathew Teague',
     baseURL:
       process.env.NODE_ENV === 'development'
         ? 'http://localhost:3000'
