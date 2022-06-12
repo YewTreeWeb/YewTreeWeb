@@ -1,5 +1,5 @@
 <template>
-  <header class="site-header">
+  <header class="site-header" ref="siteHeader">
     <nuxt-link to="/">
       <site-logo desc="YTW logo with the 'W' being coloured green" />
     </nuxt-link>
@@ -20,6 +20,18 @@ export default {
     SiteNavigation,
     SiteLogo,
   },
+  methods: {
+    scollPadding() {
+      const navHeight = this.$refs.siteHeader.offsetHeight
+      document.documentElement.style.setProperty(
+        '--scroll-padding',
+        `${navHeight - 1}px`
+      )
+    },
+  },
+  mounted() {
+    this.scollPadding()
+  },
 }
 </script>
 
@@ -31,6 +43,8 @@ export default {
   flex-flow: row nowrap;
   column-gap: 2.5rem;
   padding: 1.188rem 8.125rem;
+  position: sticky;
+  top: 0;
   > svg {
     width: 100%;
     height: auto;

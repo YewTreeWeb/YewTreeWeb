@@ -36,10 +36,11 @@ html {
   box-sizing: border-box;
   font-size: 16px;
   scroll-behavior: smooth;
+  scroll-padding-top: var(--scroll-padding, 85px);
 }
 
 body {
-  background-color: v(clr-grey-900);
+  background-color: v(clr-grey-800);
   font: map-get(f.$weights, 400) v(fs-base) / 1 f.$ff;
   color: v(clr-grey-400);
   position: relative;

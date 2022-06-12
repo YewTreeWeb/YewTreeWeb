@@ -47,8 +47,8 @@ export default {
     max-width: 41.563rem;
     display: flex;
     flex-direction: column;
-    justify-content: start;
-    align-items: start;
+    justify-content: flex-start;
+    align-items: flex-start;
     .btn {
       margin-top: 2.688rem;
     }
