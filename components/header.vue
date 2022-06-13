@@ -45,6 +45,8 @@ export default {
   padding: 1.188rem 8.125rem;
   position: sticky;
   top: 0;
+  background: transparent;
+  z-index: 1;
   > svg {
     width: 100%;
     height: auto;

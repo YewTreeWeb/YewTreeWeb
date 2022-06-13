@@ -58,7 +58,7 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ['normalize.css', '@/assets/styles/main'],
+  css: ['normalize.css', 'the-new-css-reset', '@/assets/styles/main'],
 
   // Environment variables},
   publicRuntimeConfig: {

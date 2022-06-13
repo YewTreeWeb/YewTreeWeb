@@ -1,6 +1,5 @@
 <template>
   <section class="hero">
-    <div class="hero__bg" title="Mathew Teague"></div>
     <div class="hero__inner">
       <p class="hero__subtitle">
         Hi, I'm <span>{{ $config.author }}</span> and this is
@@ -37,18 +36,49 @@ export default {
 
 <style lang="scss">
 .hero {
+  position: relative;
   padding: 5.688rem 10.5rem;
   background: linear-gradient(
     180deg,
     rgba(46, 46, 51, 0.0001) 0%,
     var(--clr-grey-900) 100%
   );
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center right;
+  &::before {
+    content: '';
+    width: 100%;
+    height: auto;
+    position: absolute;
+    inset: 0;
+    background-image: url('/img/headshot.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center right;
+    z-index: -1;
+    opacity: 0.5;
+  }
+  &::after {
+    content: '';
+    background-image: url('/img/hero-bg-shapes.svg');
+    background-repeat: no-repeat;
+    background-position: center right;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: -86px;
+    right: 0;
+    z-index: 0;
+  }
   &__inner {
     max-width: 41.563rem;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
+    z-index: 2;
     .btn {
       margin-top: 2.688rem;
     }
