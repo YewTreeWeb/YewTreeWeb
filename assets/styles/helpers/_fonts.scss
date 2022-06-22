@@ -9,15 +9,15 @@ $fh: 'Red Hat Display', ui-sans-serif, system-ui, -apple-system,
   'Noto Color Emoji' !default;
 
 $sizes: (
-  xs: 0.75rem,
-  sm: 0.875rem,
-  base: 1rem,
-  lg: 1.125rem,
-  xl: 1.25rem,
-  2xl: 1.5rem,
-  3xl: 1.875rem,
-  4xl: 2.25rem,
-  5xl: 3rem,
+  /* 12px */ xs: 0.75rem,
+  /* 14px */ sm: 0.875rem,
+  /* 16px */ base: 1rem,
+  /* 18px */ lg: 1.125rem,
+  /* 20px */ xl: 1.25rem,
+  /* 24px */ 2xl: 1.5rem,
+  /* 30px */ 3xl: 1.875rem,
+  /* 36px */ 4xl: 2.25rem,
+  /* 48px */ 5xl: 3rem
 ) !default;
 
 $lh: (

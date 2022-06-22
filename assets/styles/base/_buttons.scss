@@ -16,6 +16,7 @@ button,
   border: none;
   overflow: hidden;
   width: fit-content;
+  isolation: isolate;
   @media (hover: hover) {
     transition: background-color 0.5s ease-in-out;
     &::before {
@@ -32,6 +33,7 @@ button,
       transform-origin: center;
       transform: translate(-50%, -50%) scale(0, 0);
       transition: transform 0.45s ease-in-out;
+      will-change: transform;
     }
     &:hover {
       color: v(clr-white);

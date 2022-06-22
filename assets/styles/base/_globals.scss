@@ -24,6 +24,7 @@
     line-height: map-get(f.$lh, leading-large);
     font-weight: map-get(f.$weights, 500);
     color: v(clr-grey-100);
+    @include margin(null null rem(16));
   }
 }
 
@@ -115,9 +116,19 @@ a {
   }
 }
 
-ul {
-  padding-left: 0.813rem;
+ul:not(.glide__slides) {
+  padding-left: 1.413rem;
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
+  > li:not(.glide__slide) {
+    padding-left: rem(17.62px);
+  }
+}
+
+.section {
+  @include padding(rem(87) null);
+  &--bg-dark {
+    background-color: v(clr-grey-900);
+  }
 }

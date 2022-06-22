@@ -104,14 +104,36 @@ export default {
   },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content
-  content: {},
+  // content: {},
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {},
 
   // Image optimization configuration
   image: {
-    dir: '@/assets/images',
+    domains: ['images.ctfassets.net', 'res.cloudinary.com'],
+    alias: {
+      contentful: 'https://images.ctfassets.net',
+      cloudinary: 'https://res.cloudinary.com/your-account-name/image/upload/',
+    },
+    contentful: {
+      baseURL: 'https://images.ctfassets.net',
+    },
+    cloudinary: {
+      baseURL: 'https://res.cloudinary.com/your-account-name/image/upload/',
+    },
+    imgix: {
+      baseURL: 'https://images.unsplash.com',
+    },
+    presets: {
+      img: {
+        modifiers: {
+          format: ['avif', 'webp'],
+          fit: 'cover',
+          quality: '60',
+        },
+      },
+    },
   },
 
   // Google Tag Manager Module for Nuxt.js

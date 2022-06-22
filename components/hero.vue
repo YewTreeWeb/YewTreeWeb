@@ -64,8 +64,9 @@ export default {
     background-image: url('/img/hero-bg-shapes.svg');
     background-repeat: no-repeat;
     background-position: center right;
+    background-size: contain;
     width: 100%;
-    height: 100%;
+    height: 70vh;
     position: absolute;
     top: -86px;
     right: 0;
@@ -84,6 +85,7 @@ export default {
     }
     ul {
       margin-top: 2rem;
+      list-style-image: url('/img/tick.svg');
     }
   }
   &__subtitle {
