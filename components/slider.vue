@@ -35,9 +35,6 @@ export default {
     slides: {
       type: Array,
       required: true,
-      validator(value) {
-        return ['image'].includes(value)
-      },
     },
     autoplay: Boolean,
     perView: Number,

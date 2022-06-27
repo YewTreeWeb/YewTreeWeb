@@ -5,6 +5,7 @@
     </nuxt-link>
     <site-navigation />
     <div>
+      <toggle />
       <a href="#contact" class="btn" type="button">Get In Touch</a>
     </div>
   </header>
@@ -13,12 +14,14 @@
 <script>
 import SiteNavigation from '@/components/navigation.vue'
 import SiteLogo from '@/components/icons/logo.vue'
+import Toggle from './Toggle.vue'
 
 export default {
   name: 'SiteHeader',
   components: {
     SiteNavigation,
     SiteLogo,
+    Toggle,
   },
   methods: {
     scollPadding() {
@@ -58,8 +61,13 @@ export default {
       content: none;
     }
   }
-  div {
+  > div {
     margin-left: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: row wrap;
+    column-gap: 1.5rem;
   }
 }
 </style>
