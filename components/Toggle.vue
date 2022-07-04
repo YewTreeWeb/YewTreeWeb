@@ -1,8 +1,14 @@
 <template>
   <div class="toggle" :style="{ width: width, height: height }">
-    <input class="toggle__checkbox" type="checkbox" />
+    <input
+      class="toggle__checkbox"
+      type="checkbox"
+      v-model="active"
+      @click="handleClick()"
+    />
     <div
       class="toggle__circle"
+      :class="{ 'toggle__circle--active': active }"
       :style="{ width: circle.width, height: circle.height }"
     ></div>
     <div class="toggle__layer"></div>
@@ -22,13 +28,23 @@ export default {
       default: '22px',
     },
   },
+  emits: ['darkmode'],
   data() {
     return {
+      active: false,
+      darkmode: true,
       circle: {
         width: null,
         height: null,
       },
     }
+  },
+  methods: {
+    handleClick() {
+      this.darkmode = !this.darkmode
+      this.$emit('darkmode', this.darkmode)
+      console.log(this.darkmode)
+    },
   },
   mounted() {
     const w = this.width.replace('px', '')
@@ -46,6 +62,7 @@ export default {
   user-select: none;
   isolation: isolate;
   &__checkbox {
+    appearance: none;
     position: relative;
     width: 100%;
     height: 100%;
@@ -77,7 +94,18 @@ export default {
       );
       box-shadow: 0px 1px 2px rgba(29, 29, 32, 0.16);
       border-radius: 50%;
-      transition: 0.3s ease all, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+      transition: all 0.3s ease, left 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15);
+    }
+    &--active {
+      &::before {
+        left: 22px;
+        background: linear-gradient(
+          0deg,
+          var(--clr-grey-100) 2.67%,
+          var(--clr-white) 100%
+        );
+        box-shadow: 0px 1px 2px rgba(29, 29, 32, 0.16);
+      }
     }
   }
   &__layer {

@@ -5,7 +5,7 @@
     </nuxt-link>
     <site-navigation />
     <div>
-      <toggle />
+      <toggle @darkmode="toggleDarkmode" />
       <a href="#contact" class="btn" type="button">Get In Touch</a>
     </div>
   </header>
@@ -23,7 +23,11 @@ export default {
     SiteLogo,
     Toggle,
   },
+  emits: ['toggleDarkmode'],
   methods: {
+    toggleDarkmode(payload) {
+      this.$emit('toggleDarkmode', payload)
+    },
     scollPadding() {
       const navHeight = this.$refs.siteHeader.offsetHeight
       document.documentElement.style.setProperty(
