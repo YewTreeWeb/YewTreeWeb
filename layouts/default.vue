@@ -26,14 +26,21 @@ export default {
   methods: {
     toggleDarkmode(payload) {
       this.darkmode = payload
-      document.getElementsByTagName('body')[0].dataset.theme = this.darkmode
-        ? 'dark'
-        : 'light'
+      let mode = this.darkmode ? 'dark' : 'light'
+      document.getElementsByTagName('body')[0].dataset.theme = mode
+      localStorage.setItem('theme', mode)
     },
   },
   mounted() {
-    if (this.darkmode) {
-      document.getElementsByTagName('body')[0].dataset.theme = 'dark'
+    const body = document.getElementsByTagName('body')[0]
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      const theme = localStorage.getItem('theme')
+      body.dataset.theme = theme
+      if (theme === 'light') {
+        this.darkmode = false
+      }
+    } else {
+      body.dataset.theme = 'dark'
     }
   },
 }

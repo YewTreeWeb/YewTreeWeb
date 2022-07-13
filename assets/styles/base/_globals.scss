@@ -22,8 +22,8 @@
     font-family: f.$fh;
     font-size: v(fs-#{$size});
     line-height: map-get(f.$lh, leading-large);
-    font-weight: map-get(f.$weights, 500);
-    color: v(clr-grey-100);
+    font-weight: map-get(f.$weights, 50);
+    color: v(clr-grey-10);
     @include margin(null null rem(16));
   }
 }
@@ -41,9 +41,9 @@ html {
 }
 
 body {
-  background-color: v(clr-grey-800);
-  font: map-get(f.$weights, 400) v(fs-base) / 1 f.$ff;
-  color: v(clr-grey-400);
+  background-color: v(clr-grey-80);
+  font: map-get(f.$weights, 40) v(fs-base) / 1 f.$ff;
+  color: v(clr-grey-40);
   position: relative;
   // MSIE: Prevents scrollbar from overlapping content.
   -ms-overflow-style: scrollbar;
@@ -87,7 +87,7 @@ img {
 
 // link styles
 a {
-  color: v(clr-grey-400);
+  color: v(clr-grey-40);
   text-underline-offset: 2px;
   @media (hover: hover) {
     text-decoration: none;
@@ -101,13 +101,13 @@ a {
       left: 0;
       right: 0;
       height: 2px;
-      background-color: v(clr-teal-500);
+      background-color: v(clr-teal-50);
       transform-origin: bottom right;
       transform: scaleX(0);
       transition: transform 0.5s ease;
     }
     &:hover {
-      color: v(clr-teal-500);
+      color: v(clr-teal-50);
       &::before {
         transform-origin: bottom left;
         transform: scaleX(1);
@@ -129,6 +129,6 @@ ul:not(.glide__slides) {
 .section {
   @include padding(rem(87) null);
   &--bg-dark {
-    background-color: v(clr-grey-900);
+    background-color: v(clr-grey-90);
   }
 }

@@ -2,9 +2,10 @@
   <div>
     <hero />
     <projects />
-    <section class="section section--bg-dark">
-      <h1 class="section__title">{{ openSource.title }}</h1>
+    <section class="open-source section section--bg-dark">
+      <h2 class="section__title">{{ openSource.title }}</h2>
       <p class="section__intro">{{ openSource.intro }}</p>
+      <Button text="test" />
     </section>
   </div>
 </template>
@@ -12,11 +13,13 @@
 <script>
 import Hero from '@/components/hero.vue'
 import Projects from '@/components/projects.vue'
+import Button from '~/components/Button.vue'
 export default {
   name: 'IndexPage',
   components: {
     Hero,
     Projects,
+    Button,
   },
   data() {
     return {
@@ -30,4 +33,18 @@ export default {
 }
 </script>
 
-<style lang="scss"></style>
+<style lang="scss" scope>
+.open-source {
+  border-top: 1px solid var(--clr-grey-80);
+  text-align: center;
+}
+.section {
+  &__intro {
+    font-size: 1.25rem;
+    line-height: 1.875rem;
+    letter-spacing: -0.016rem;
+    max-width: 768px;
+    margin: 0 auto 7.25rem;
+  }
+}
+</style>

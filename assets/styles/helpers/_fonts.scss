@@ -17,7 +17,8 @@ $sizes: (
   /* 24px */ 2xl: 1.5rem,
   /* 30px */ 3xl: 1.875rem,
   /* 36px */ 4xl: 2.25rem,
-  /* 48px */ 5xl: 3rem
+  /* 48px */ 5xl: 3rem,
+  /* 56px */ 6xl: 3.5rem
 ) !default;
 
 $lh: (
@@ -47,10 +48,10 @@ $weights: (
 ) !default;
 
 $headings: (
-  h1: 5xl,
-  h2: 4xl,
-  h3: 3xl,
-  h4: 2xl,
-  h5: xl,
-  h6: lg,
+  h1: 6xl,
+  h2: 5xl,
+  h3: 4xl,
+  h4: 3xl,
+  h5: 2xl,
+  h6: xl,
 ) !default;

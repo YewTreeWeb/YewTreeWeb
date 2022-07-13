@@ -53,6 +53,16 @@ export default {
         href: '/fonts/red-hat-display-v12-latin-900.woff2',
         crossorigin: true,
       },
+      {
+        rel: 'preload',
+        as: 'image',
+        href: '/img/hero-bg-shapes.svg',
+      },
+      {
+        rel: 'preload',
+        as: 'image',
+        href: '/img/tick.svg',
+      },
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
     ],
   },

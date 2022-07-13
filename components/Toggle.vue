@@ -89,8 +89,8 @@ export default {
       padding: 0.563em 0.25em;
       background: linear-gradient(
         180deg,
-        var(--clr-grey-700) 0%,
-        var(--clr-grey-800) 100%
+        var(--clr-grey-70) 0%,
+        var(--clr-grey-80) 100%
       );
       box-shadow: 0px 1px 2px rgba(29, 29, 32, 0.16);
       border-radius: 50%;
@@ -101,7 +101,7 @@ export default {
         left: 22px;
         background: linear-gradient(
           0deg,
-          var(--clr-grey-100) 2.67%,
+          var(--clr-grey-10) 2.67%,
           var(--clr-white) 100%
         );
         box-shadow: 0px 1px 2px rgba(29, 29, 32, 0.16);
@@ -112,7 +112,7 @@ export default {
     position: absolute;
     inset: 0;
     width: 100%;
-    background-color: var(--clr-teal-500);
+    background-color: var(--clr-teal-50);
     border-radius: 6.25rem;
     transition: 0.3s ease all;
     z-index: 1;

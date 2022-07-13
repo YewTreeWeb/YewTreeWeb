@@ -10,6 +10,7 @@
             :fit="slide.fit || fit"
             :loading="slide.loading || loading"
             preset="img"
+            placeholder
           />
         </li>
       </ul>
@@ -85,11 +86,11 @@ export default {
     align-items: center;
   }
   &__arrow {
-    background-color: var(--clr-grey-800);
-    color: var(--clr-grey-400);
+    background-color: var(--clr-grey-80);
+    color: var(--clr-grey-40);
     cursor: pointer;
     &::before {
-      background-color: var(--clr-grey-600);
+      background-color: var(--clr-grey-60);
     }
   }
 }

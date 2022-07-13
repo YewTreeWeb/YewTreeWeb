@@ -1,5 +1,9 @@
 <template>
-  <header class="site-header" ref="siteHeader">
+  <header
+    class="site-header"
+    :class="{ 'site-header--filled': filled }"
+    ref="siteHeader"
+  >
     <nuxt-link to="/">
       <site-logo desc="YTW logo with the 'W' being coloured green" />
     </nuxt-link>
@@ -23,6 +27,11 @@ export default {
     SiteLogo,
     Toggle,
   },
+  data() {
+    return {
+      filled: false,
+    }
+  },
   emits: ['toggleDarkmode'],
   methods: {
     toggleDarkmode(payload) {
@@ -35,9 +44,19 @@ export default {
         `${navHeight - 1}px`
       )
     },
+    headerScroll(param) {
+      window.addEventListener('scroll', () => {
+        if (window.scrollY >= param) {
+          this.filled = true
+        } else {
+          this.filled = false
+        }
+      })
+    },
   },
   mounted() {
     this.scollPadding()
+    this.headerScroll(this.$refs.siteHeader.offsetHeight)
   },
 }
 </script>
@@ -52,10 +71,14 @@ export default {
   padding: 1.188rem 8.125rem;
   position: sticky;
   top: 0;
-  background: transparent;
-  z-index: 1;
+  background-color: transparent;
+  z-index: 10;
+  transition: background-color 0.35s ease-in-out;
+  &--filled {
+    background-color: var(--clr-grey-100);
+  }
   > svg {
-    width: 100%;
+    width: 10%;
     height: auto;
     max-width: 71px;
   }

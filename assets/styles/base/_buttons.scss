@@ -1,9 +1,8 @@
 @use '../helpers' as *;
 @use '../helpers/fonts' as f;
 
-button,
 .btn {
-  background-color: v(clr-teal-500);
+  background-color: v(clr-teal-50);
   color: v(clr-white);
   border-radius: 4px;
   line-height: map-get(f.$lh, leading-7);
@@ -17,6 +16,12 @@ button,
   overflow: hidden;
   width: fit-content;
   isolation: isolate;
+  &--sm {
+    min-height: 40px;
+  }
+  &--md {
+    min-height: 48px;
+  }
   @media (hover: hover) {
     transition: background-color 0.5s ease-in-out;
     &::before {
@@ -29,7 +34,7 @@ button,
       right: unset;
       @include size(1em);
       border-radius: 50%;
-      background-color: v(clr-teal-600);
+      background-color: v(clr-teal-60);
       transform-origin: center;
       transform: translate(-50%, -50%) scale(0, 0);
       transition: transform 0.45s ease-in-out;

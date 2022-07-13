@@ -41,7 +41,7 @@ export default {
   background: linear-gradient(
     180deg,
     rgba(46, 46, 51, 0.0001) 0%,
-    var(--clr-grey-900) 100%
+    var(--clr-grey-90) 100%
   );
   background-repeat: no-repeat;
   background-size: cover;

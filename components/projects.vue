@@ -1,6 +1,6 @@
 <template>
   <section class="section projects">
-    <h1 class="projects__title">{{ title }}</h1>
+    <h2 class="projects__title">{{ title }}</h2>
     <p class="projects__subtitle">{{ subtitle }}</p>
     <SliderVue :slides="slider.slides" />
   </section>
@@ -37,7 +37,7 @@ export default {
 <style lang="scss">
 .projects {
   text-align: center;
-  background-color: var(--clr-grey-900);
+  background-color: var(--clr-grey-90);
   h1 {
     margin-top: 0;
   }
@@ -45,7 +45,7 @@ export default {
     font-size: 1.25rem;
     line-height: 1.875rem;
     letter-spacing: -0.016rem;
-    color: var(--clr-grey-400);
+    color: var(--clr-grey-40);
     max-width: 768px;
     margin: 0 auto 6rem;
   }
