@@ -309,22 +309,6 @@
   }
 }
 
-// Clearfix
-@mixin clearfix() {
-  &::after {
-    content: '';
-    clear: both;
-  }
-
-  @supports (display: flow-root) {
-    display: flow-root;
-    &::after {
-      display: none;
-      content: none;
-    }
-  }
-}
-
 // Hover Detect
 @mixin hover {
   @supports (hover: hover) {
@@ -350,7 +334,7 @@
 }
 
 // Call to action
-@mixin call-to-action($hover: true, $focus: true, $active: true) {
+@mixin cta($hover: true, $focus: true, $active: true) {
   @if $hover {
     @include hover {
       @content;

@@ -1,10 +1,11 @@
 <template>
   <svg
     viewBox="0 0 67 26"
-    :class="classes"
     xmlns="http://www.w3.org/2000/svg"
-    role="img"
+    :class="classes"
+    :role="title ? 'img' : undefined"
     :aria-labelledby="ariaIds()"
+    :aria-hidden="!title ? true : false"
   >
     <title :id="titleId">{{ title }}</title>
     <desc v-if="desc" :id="descId">{{ desc }}</desc>
@@ -27,14 +28,7 @@ import { v4 as uuidv4 } from 'uuid'
 export default {
   name: 'SiteLogo',
   props: {
-    classes: {
-      type: Array,
-      default: null,
-    },
-    strokewidth: {
-      type: [Number, String],
-      default: 1,
-    },
+    classNames: String,
     title: {
       type: String,
       default: 'YTW',
@@ -58,14 +52,33 @@ export default {
       descId: null,
     }
   },
+  computed: {
+    classes() {
+      return {
+        classNames: this.classNames || '',
+      }
+    },
+  },
   created() {
-    const id = uuidv4().split('-')
-    this.titleId = `${id[0]}-${id[1]}-Title`
-    this.descId = `${id[0]}-${id[1]}-Desc`
+    const id = this.title ? uuidv4().split('-') : null
+    if (this.title && id !== null) {
+      this.titleId = `${id[0]}-${id[1]}-Title`
+    }
+    if (this.desc && id !== null) {
+      this.descId = `${id[0]}-${id[1]}-Desc`
+    }
   },
   methods: {
     ariaIds() {
-      return `${this.titleId}${this.desc ? ' ' + this.descId : ''}`
+      let labelledby = undefined
+
+      if (this.title && this.desc) {
+        labelledby = `${this.titleId}${this.desc ? ' ' + this.descId : ''}`
+      } else if (this.title) {
+        labelledby = `${this.titleId}`
+      }
+
+      return labelledby
     },
   },
 }

@@ -4,14 +4,17 @@
       class="toggle__checkbox"
       type="checkbox"
       v-model="active"
-      @click="handleClick()"
+      @click.prevent="handleClick()"
     />
     <div
       class="toggle__circle"
       :class="{ 'toggle__circle--active': active }"
       :style="{ width: circle.width, height: circle.height }"
     ></div>
-    <div class="toggle__layer"></div>
+    <div
+      class="toggle__layer"
+      :class="{ 'toggle__layer--active': active }"
+    ></div>
   </div>
 </template>
 
@@ -27,12 +30,13 @@ export default {
       type: String,
       default: '22px',
     },
+    clickValue: [Function, String, Boolean],
   },
-  emits: ['darkmode'],
+  emits: ['clickResult'],
   data() {
     return {
       active: false,
-      darkmode: true,
+      toggleValue: this.clickValue,
       circle: {
         width: null,
         height: null,
@@ -41,9 +45,10 @@ export default {
   },
   methods: {
     handleClick() {
-      this.darkmode = !this.darkmode
-      this.$emit('darkmode', this.darkmode)
-      console.log(this.darkmode)
+      this.active = !this.active
+      this.toggleValue = !this.toggleValue
+      this.$emit('clickResult', this.toggleValue)
+      console.log(this.toggleValue)
     },
   },
   mounted() {
@@ -116,6 +121,9 @@ export default {
     border-radius: 6.25rem;
     transition: 0.3s ease all;
     z-index: 1;
+    &--active {
+      background-color: var(--clr-teal-70);
+    }
   }
 }
 </style>

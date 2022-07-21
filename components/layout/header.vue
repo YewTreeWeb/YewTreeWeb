@@ -9,16 +9,17 @@
     </nuxt-link>
     <site-navigation />
     <div>
-      <toggle @darkmode="toggleDarkmode" />
-      <a href="#contact" class="btn" type="button">Get In Touch</a>
+      <toggle :clickValue="mode" @clickResult="toggleTheme" />
+      <a href="#contact" class="btn">Get In Touch</a>
     </div>
   </header>
 </template>
 
 <script>
+import { mapMutations, mapState } from 'vuex'
 import SiteNavigation from '@/components/navigation.vue'
 import SiteLogo from '@/components/icons/logo.vue'
-import Toggle from './Toggle.vue'
+import Toggle from '@/components/Toggle.vue'
 
 export default {
   name: 'SiteHeader',
@@ -32,10 +33,13 @@ export default {
       filled: false,
     }
   },
-  emits: ['toggleDarkmode'],
   methods: {
-    toggleDarkmode(payload) {
-      this.$emit('toggleDarkmode', payload)
+    ...mapMutations(['toggleDarkmode']),
+    toggleTheme(payload) {
+      this.toggleDarkmode()
+      if (typeof localStorage !== 'undefined') {
+        localStorage.setItem('theme', payload)
+      }
     },
     scollPadding() {
       const navHeight = this.$refs.siteHeader.offsetHeight
@@ -53,6 +57,11 @@ export default {
         }
       })
     },
+  },
+  computed: {
+    ...mapState({
+      mode: 'darkmode',
+    }),
   },
   mounted() {
     this.scollPadding()

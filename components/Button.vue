@@ -5,7 +5,9 @@
     :aria-label="defaultAriaLabel"
     :disabled="disabled"
   >
-    {{ text }}
+    <span v-if="iconPosition === 'left'"><slot name="icon"></slot></span>
+    {{ text.trim() }}
+    <span v-if="iconPosition === 'right'"><slot name="icon"></slot></span>
   </button>
 </template>
 
@@ -17,7 +19,7 @@ export default {
       type: String,
       required: true,
     },
-    label: String,
+    ariaLabel: String,
     type: {
       type: String,
       default: 'button',
@@ -30,6 +32,13 @@ export default {
       default: 'sm',
       validator(value) {
         return ['sm', 'md'].includes(value)
+      },
+    },
+    iconPosition: {
+      type: String,
+      default: 'left',
+      validator(value) {
+        return ['left', 'right'].includes(value)
       },
     },
     disabled: {
@@ -46,7 +55,7 @@ export default {
       }
     },
     defaultAriaLabel() {
-      return this.label ? this.label : this.$attrs['aria-label']
+      return this.ariaLabel ? this.ariaLabel : this.$attrs['aria-label']
     },
   },
   mounted() {

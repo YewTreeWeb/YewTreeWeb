@@ -9,7 +9,7 @@
             :height="slide.height || imageHeight"
             :fit="slide.fit || fit"
             :loading="slide.loading || loading"
-            preset="img"
+            preset="default"
             placeholder
           />
         </li>
@@ -17,10 +17,10 @@
     </div>
     <div class="glide__arrows" data-glide-el="controls">
       <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
-        prev
+        <ArrowLeft classNames="glide__icon" title="View previous slide" />
       </button>
       <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
-        next
+        <ArrowRight classNames="glide__icon" title="View next slide" />
       </button>
     </div>
   </div>
@@ -28,8 +28,11 @@
 
 <script>
 import Glide from '@glidejs/glide'
+import ArrowLeft from './icons/arrow-left.vue'
+import ArrowRight from './icons/arrow-right.vue'
 
 export default {
+  components: { ArrowLeft, ArrowRight },
   name: 'SliderItem',
   props: {
     type: String,

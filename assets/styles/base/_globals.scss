@@ -116,13 +116,17 @@ a {
   }
 }
 
-ul:not(.glide__slides) {
+ul:not(.glide__slides):not(.site-navigation > ul) {
   padding-left: 1.413rem;
   display: flex;
   flex-direction: column;
   row-gap: 0.5rem;
   > li:not(.glide__slide) {
     padding-left: rem(17.62px);
+    list-style-image: url('/img/tick.svg');
+  }
+  &.no-style {
+    list-style: none;
   }
 }
 

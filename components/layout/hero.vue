@@ -85,7 +85,6 @@ export default {
     }
     ul {
       margin-top: 2rem;
-      list-style-image: url('/img/tick.svg');
     }
   }
   &__subtitle {

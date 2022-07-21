@@ -1,6 +1,6 @@
 <template>
   <div>
-    <site-header @toggleDarkmode="toggleDarkmode" />
+    <site-header />
     <main>
       <Nuxt />
     </main>
@@ -9,8 +9,9 @@
 </template>
 
 <script>
-import SiteHeader from '@/components/header.vue'
-import SiteFooter from '@/components/footer.vue'
+import { mapMutations, mapState } from 'vuex'
+import SiteHeader from '@/components/layout/header.vue'
+import SiteFooter from '@/components/layout/footer.vue'
 
 export default {
   name: 'DefaultLayout',
@@ -18,26 +19,22 @@ export default {
     SiteHeader,
     SiteFooter,
   },
-  data() {
-    return {
-      darkmode: true,
-    }
-  },
   methods: {
-    toggleDarkmode(payload) {
-      this.darkmode = payload
-      let mode = this.darkmode ? 'dark' : 'light'
-      document.getElementsByTagName('body')[0].dataset.theme = mode
-      localStorage.setItem('theme', mode)
-    },
+    ...mapMutations(['toggleDarkmode']),
+  },
+  computed: {
+    ...mapState({
+      darkmode: 'darkmode', // alias for authModalShowwq
+    }),
   },
   mounted() {
     const body = document.getElementsByTagName('body')[0]
     if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
       const theme = localStorage.getItem('theme')
-      body.dataset.theme = theme
-      if (theme === 'light') {
-        this.darkmode = false
+      if (Boolean(theme) !== this.darkmode) {
+        this.toggleDarkmode()
+      } else {
+        body.dataset.theme = theme ? 'dark' : 'light'
       }
     } else {
       body.dataset.theme = 'dark'

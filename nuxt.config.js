@@ -136,7 +136,7 @@ export default {
       baseURL: 'https://images.unsplash.com',
     },
     presets: {
-      img: {
+      default: {
         modifiers: {
           format: ['avif', 'webp'],
           fit: 'cover',

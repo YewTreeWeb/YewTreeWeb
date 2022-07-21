@@ -1,9 +1,8 @@
 <template>
   <svg
-    width="114"
-    height="114"
+    viewBox="0 0 114 114"
     xmlns="http://www.w3.org/2000/svg"
-    :class="classes !== undefined ? classes : ''"
+    :class="classes"
     :role="title ? 'img' : undefined"
     :aria-labelledby="ariaIds()"
     :aria-hidden="!title ? true : false"
@@ -67,10 +66,6 @@ import { v4 as uuidv4 } from 'uuid'
 export default {
   name: 'ArrowRight',
   props: {
-    strokewidth: {
-      type: [Number, String],
-      default: 1,
-    },
     title: {
       type: String,
       default: 'Arrow right',
@@ -78,7 +73,7 @@ export default {
     desc: {
       type: String,
     },
-    classes: {
+    classNames: {
       type: String,
     },
     fill: {
@@ -97,6 +92,11 @@ export default {
   },
   computed: {
     _secondaryfill: () => this.secondaryfill || this.fill,
+    classes() {
+      return {
+        classNames: this.classNames || '',
+      }
+    },
   },
   created() {
     const id = this.title ? uuidv4().split('-') : null

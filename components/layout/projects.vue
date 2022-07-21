@@ -1,5 +1,5 @@
 <template>
-  <section class="section projects">
+  <section class="projects section section--bg-dark">
     <h2 class="projects__title">{{ title }}</h2>
     <p class="projects__subtitle">{{ subtitle }}</p>
     <SliderVue :slides="slider.slides" />
@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import SliderVue from './slider.vue'
+import SliderVue from '@/components/slider.vue'
 export default {
   name: 'ProjectsSection',
   data() {
@@ -37,7 +37,6 @@ export default {
 <style lang="scss">
 .projects {
   text-align: center;
-  background-color: var(--clr-grey-90);
   h1 {
     margin-top: 0;
   }
