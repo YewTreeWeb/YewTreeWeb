@@ -1,0 +1,87 @@
+---
+import CompatibilityList from "~/components/compatibility-list.astro";
+import ContentSection from "~/components/content-section.astro";
+import type { CompatibilityItem } from "~/types";
+
+const frameworks: Array<CompatibilityItem> = [
+  {
+    title: "React",
+    icon: "frameworks/react",
+    url: "https://reactjs.org/",
+  },
+  {
+    title: "TypeScript",
+    icon: "frameworks/typescript",
+    url: "https://www.typescriptlang.org/",
+  },
+  {
+    title: "Vue",
+    icon: "frameworks/vue",
+    url: "https://vuejs.org/",
+  },
+  {
+    title: "PHP",
+    icon: "frameworks/Php",
+    url: "https://lit.dev/",
+  },
+  {
+    title: "Liquid",
+    icon: "frameworks/lit",
+    url: "https://lit.dev/",
+  },
+  {
+    title: "SCSS/Sass",
+    icon: "frameworks/Sass",
+    url: "https://lit.dev/",
+  },
+];
+
+const platforms: Array<CompatibilityItem> = [
+  {
+    title: "Shopify",
+    icon: "platforms/Shopify",
+    url: "https://www.netlify.com/",
+  },
+  {
+    title: "WordPress",
+    icon: "platforms/Wordpress",
+    url: "https://vercel.com/",
+  },
+  {
+    title: "Jekyll",
+    icon: "platforms/jekyll",
+    url: "https://pages.cloudflare.com/",
+  },
+  {
+    title: "Next.js",
+    icon: "platforms/nextjs",
+    url: "https://render.com/",
+  },
+  {
+    title: "Nuxt",
+    icon: "platforms/nuxtjs",
+    url: "https://pages.github.com/",
+  },
+  {
+    title: "Astro",
+    icon: "platforms/astro",
+    url: "https://docs.gitlab.com/ee/user/project/pages/",
+  },
+];
+---
+
+<ContentSection title="Skills" id="skills">
+  <Fragment slot="lead">
+    Over the years being a developer I have gained experience in a variaty of different languages and software. A some of these experiences are:
+  </Fragment>
+  <CompatibilityList
+    items={frameworks}
+    title="Languages"
+    url="https://docs.astro.build/core-concepts/framework-components/"
+  />
+  <CompatibilityList
+    items={platforms}
+    title="Platforms & Frameworks"
+    url="https://docs.astro.build/guides/deploy/"
+  />
+</ContentSection>
