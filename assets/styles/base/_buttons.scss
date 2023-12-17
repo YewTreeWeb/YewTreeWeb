@@ -1,0 +1,51 @@
+@use '../helpers' as *;
+@use '../helpers/fonts' as f;
+
+.btn {
+  background-color: v(clr-teal-50);
+  color: v(clr-white);
+  border-radius: 4px;
+  line-height: map-get(f.$lh, leading-7);
+  font-weight: map-get(f.$weights, 500);
+  font-size: v(fs-base);
+  @include padding(rem(8px) rem(20px));
+  z-index: 1;
+  position: relative;
+  outline: none;
+  border: none;
+  overflow: hidden;
+  width: fit-content;
+  isolation: isolate;
+  &--sm {
+    min-height: 40px;
+  }
+  &--md {
+    min-height: 48px;
+  }
+  @media (hover: hover) {
+    transition: background-color 0.5s ease-in-out;
+    &::before {
+      content: '';
+      z-index: -1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      bottom: unset;
+      right: unset;
+      @include size(1em);
+      border-radius: 50%;
+      background-color: v(clr-teal-60);
+      transform-origin: center;
+      transform: translate(-50%, -50%) scale(0, 0);
+      transition: transform 0.45s ease-in-out;
+      will-change: transform;
+    }
+    &:hover {
+      color: v(clr-white);
+      &::before {
+        transform-origin: center;
+        transform: translate(-50%, -50%) scale(15, 15);
+      }
+    }
+  }
+}
