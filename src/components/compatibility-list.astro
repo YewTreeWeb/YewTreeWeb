@@ -5,7 +5,7 @@ import type { CompatibilityItem } from "~/types";
 export interface Props {
   items: Array<CompatibilityItem>;
   title: string;
-  url: string;
+  url?: string;
 }
 
 const { items, title, url } = Astro.props;
@@ -31,7 +31,9 @@ const { items, title, url } = Astro.props;
       }
     </ul>
   </div>
-  <p class="text-right text-sm">
-    <a class="text-primary" href={url}> ...and more &rarr;</a>
-  </p>
+  {url && (
+    <p class="text-right text-sm">
+      <a class="text-primary" href={url}> ...and more &rarr;</a>
+    </p>
+  )}
 </div>

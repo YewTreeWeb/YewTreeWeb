@@ -3,9 +3,10 @@ export interface Props {
   id: string;
   title: string;
   fontSize?: string
+  lead?: boolean
 }
 
-const { title, id, fontSize = 'text-2xl' } = Astro.props;
+const { title, id, fontSize = 'text-2xl', lead } = Astro.props;
 ---
 
 <section
@@ -20,8 +21,10 @@ const { title, id, fontSize = 'text-2xl' } = Astro.props;
       {title}
     </h2>
   </div>
-  <p class=`max-w-[50rem] text-center font-extrabold ${fontSize}`>
-    <slot name="lead" />
-  </p>
+  {lead && (
+    <p class=`max-w-[50rem] text-center font-extrabold ${fontSize}`>
+      <slot name="lead" />
+    </p>
+  )}
   <slot />
 </section>

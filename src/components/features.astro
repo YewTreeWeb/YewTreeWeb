@@ -1,5 +1,4 @@
 ---
-import { Icon } from "astro-icon";
 import ContentSection from "~/components/content-section.astro";
 import type { FeatureItem } from "~/types";
 
@@ -43,14 +42,14 @@ const features: Array<FeatureItem> = [
 ];
 ---
 
-<ContentSection title="Features" id="features">
-  <Fragment slot="lead">
-    Astro comes <span class="text-primary">batteries included</span>. It takes
-    the best parts of
-    <span class="text-primary">state-of-the-art</span>
-     tools and adds its own <span class="text-primary">innovations</span>.
+<ContentSection title="Testimonials" id="testimonials" fontSize="text-xl">
+  <Fragment>
+      <blockquote class="max-w-[50rem] text-center font-extrabold text-xl flex flex-col justify-center items-center gap-y-4">
+        "I worked alongside Mat for close to three years now. During this time, I have been really impressed by his level of knowledge in development. From front-end (HTML/CSS, Liquid, JavaScript, XML, jQuery) to the back-end (Gulp, Node.js, Shell, PHP), nothing is too complicated for him. Mat never stops learning and is always up to date with the latest trends. I learned a lot from him and I have only optimistic predictions for his career trajectory."
+        <cite class="text-base">Elodie Legendre, Head Of Creative at <a class="underline underline-offset-4" href="https://kubixmedia.co.uk/" target="_blank" rel="noopener noreferrer">Kubix</a></cite>
+      </blockquote>
   </Fragment>
-  <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <!-- <ul class="grid max-w-6xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
     {
       features.map(({ title, description, icon }) => (
         <li class="flex flex-col items-center gap-4 border border-default bg-offset p-6">
@@ -62,5 +61,5 @@ const features: Array<FeatureItem> = [
         </li>
       ))
     }
-  </ul>
+  </ul> -->
 </ContentSection>

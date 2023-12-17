@@ -22,17 +22,17 @@ const frameworks: Array<CompatibilityItem> = [
   {
     title: "PHP",
     icon: "frameworks/Php",
-    url: "https://lit.dev/",
+    url: "https://www.php.net/",
   },
   {
     title: "Liquid",
-    icon: "frameworks/lit",
-    url: "https://lit.dev/",
+    icon: "frameworks/drop",
+    url: "https://shopify.dev/docs/api/liquid",
   },
   {
     title: "SCSS/Sass",
     icon: "frameworks/Sass",
-    url: "https://lit.dev/",
+    url: "https://sass-lang.com/",
   },
 ];
 
@@ -40,48 +40,46 @@ const platforms: Array<CompatibilityItem> = [
   {
     title: "Shopify",
     icon: "platforms/Shopify",
-    url: "https://www.netlify.com/",
+    url: "https://www.shopify.com/uk",
   },
   {
     title: "WordPress",
     icon: "platforms/Wordpress",
-    url: "https://vercel.com/",
+    url: "https://wordpress.org/",
   },
   {
     title: "Jekyll",
     icon: "platforms/jekyll",
-    url: "https://pages.cloudflare.com/",
+    url: "https://jekyllrb.com/",
   },
   {
     title: "Next.js",
     icon: "platforms/nextjs",
-    url: "https://render.com/",
+    url: "https://nextjs.org/",
   },
   {
     title: "Nuxt",
     icon: "platforms/nuxtjs",
-    url: "https://pages.github.com/",
+    url: "https://nuxt.com/",
   },
   {
     title: "Astro",
     icon: "platforms/astro",
-    url: "https://docs.gitlab.com/ee/user/project/pages/",
+    url: "https://astro.build/",
   },
 ];
 ---
 
-<ContentSection title="Skills" id="skills">
+<ContentSection title="Skills" id="skills" fontSize="text-xl" lead>
   <Fragment slot="lead">
     Over the years being a developer I have gained experience in a variaty of different languages and software. A some of these experiences are:
   </Fragment>
   <CompatibilityList
     items={frameworks}
     title="Languages"
-    url="https://docs.astro.build/core-concepts/framework-components/"
   />
   <CompatibilityList
     items={platforms}
     title="Platforms & Frameworks"
-    url="https://docs.astro.build/guides/deploy/"
   />
 </ContentSection>
