@@ -1,0 +1,23 @@
+---
+import ContentSection from "./content-section.astro";
+
+---
+<ContentSection title="Don't be shy" id="form" fontSize="text-xl" lead>
+  <Fragment slot="lead">
+    Say hello and lets grow together!
+  </Fragment>
+  <form netlify>
+    <label for="name">
+      Name
+      <input type="text" name="name" id="name">
+    </label>
+    <label for="email">
+      Email
+      <input type="email" name="email" id="email">
+    </label>
+    <label for="message">
+      Message
+      <textarea name="message" id="message" cols="30" rows="10"></textarea>
+    </label>
+  </form>
+</ContentSection>
