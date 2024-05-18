@@ -5,29 +5,31 @@ import type { FooterLink } from "~/types";
 
 const links: Array<FooterLink> = [
   {
-    url: "https://astro.build/",
-    description: "Astro's official website",
-    icon: "mdi:home",
+    url: "https://www.linkedin.com/in/mathewteague",
+    description: "View LinkedIn profile",
+    icon: "fa-brands:linkedin",
   },
   {
-    url: "https://github.com/mhyfritz/astro-landing-page",
-    description: "View source on GitHub",
-    icon: "fa-brands:github-alt",
-  },
-  {
-    url: "https://astro.build/chat",
-    description: "Astro on Discord",
-    icon: "fa-brands:discord",
-  },
-  {
-    url: "https://twitter.com/astrodotbuild",
-    description: "Astro on Twitter",
+    url: "https://twitter.com/yewtreeweb",
+    description: "View Twitter/X profile",
     icon: "fa-brands:twitter",
   },
+  {
+    url: "https://github.com/YewTreeWeb",
+    description: "View GitHub profile",
+    icon: "fa-brands:github",
+  },
+  {
+    url: "mailto:mathew.teague@yewtreeweb.co.uk",
+    description: "Email me",
+    icon: "fa-solid:envelope",
+  },
 ];
+
+const year = new Date().getFullYear();
 ---
 
-<footer class="relative flex h-64 items-center justify-center">
+<footer class="relative flex h-64 items-center justify-center gap-x-4">
   <div class="absolute inset-0 overflow-hidden opacity-40">
     <HeroImage />
   </div>
@@ -46,4 +48,5 @@ const links: Array<FooterLink> = [
       ))
     }
   </ul>
+  <p>&copy; Mathew Teague - {year}. All rights reserved.</p>
 </footer>
