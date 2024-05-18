@@ -7,6 +7,8 @@ import netlify from "@astrojs/netlify/functions";
 export default defineConfig({
   site: "https://yewtreeweb.co.uk/",
   integrations: [tailwind()],
-  output: "server",
-  adapter: netlify(),
+  // output: "server",
+  // adapter: netlify({
+  //   edgeMiddleware: false,
+  // }),
 });
